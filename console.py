@@ -7,8 +7,6 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = '(hbnb)'
 
-    """"HBNBCommand cmd that includes quit, EOF nad handling empty lines"""
-
     def do_quit(self, arg):
         """quit command toe exit the code.
         Args:
@@ -16,10 +14,8 @@ class HBNBCommand(cmd.Cmd):
         Returns:
             true to signal program terminateion
         """
-        print("QUITING...")
 
         return True
-
     def do_EOF(self, arg):
         """
         End of file program to exit the file
@@ -43,16 +39,5 @@ class HBNBCommand(cmd.Cmd):
         """
         helps for the EOF command
         """
-    def do_hbnb(self,arg):
-        """
-        display a welcome message
-
-        """
-        print("WELCOME:")
-    def help_prompt(self):
-        """helpf for prompt message"""
-        print("Display a welcome message")
-
-
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #!/usr/bin/env python3
+=======
+#!/usr/bin/env python 3
+>>>>>>> e2766cfbe3c1419f1e776f1ea115e5154f214786
 
 import cmd
 
@@ -10,8 +14,13 @@ class HBNBCommand(cmd.Cmd):
     """"HBNBCommand cmd that includes quit, EOF nad handling empty lines"""
 
     def do_quit(self, arg):
+<<<<<<< HEAD
         """quit command toe exit the code.
         Args:
+=======
+        """quit command toe exit the code.  
+        Args: 
+>>>>>>> e2766cfbe3c1419f1e776f1ea115e5154f214786
             arg: any argument passed after thec command(not used)
         Returns:
             true to signal program terminateion
@@ -56,4 +65,7 @@ class HBNBCommand(cmd.Cmd):
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
+<<<<<<< HEAD
 
+=======
+>>>>>>> e2766cfbe3c1419f1e776f1ea115e5154f214786

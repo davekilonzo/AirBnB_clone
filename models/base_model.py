@@ -21,3 +21,15 @@ class BaseModel:
         dict_copy['created_at'] = self.created_at.isoformat()
         dict_copy['updated_at'] = self.updated_at.isoformat()
         return dict_copy
+    def __init__(self, *args, **kwargs):
+        if kwargs:  # if there are keyword arguments
+            for key in kwargs:  # for each key in the dictionary
+                value = kwargs[key]  # get the value for this key
+                if key == "created_at" or key == "updated_at":
+                    value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")  # convert string to datetime
+                elif key == "__class__":
+                    continue  # skip this key
+                setattr(self, key, value)  # set the attribute on the instance
+        else:  # if there are no keyword arguments
+            self.id = str(uuid.uuid4())  # generate a unique ID
+            self.created_at = self.updated_at = datetime.now()

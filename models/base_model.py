@@ -14,6 +14,7 @@ class BaseModel:
 
     def save(self):
         self.updated_at = datetime.now()
+        storage.save()
 
     def to_dict(self):
         dict_copy = self.__dict__.copy()
@@ -22,7 +23,8 @@ class BaseModel:
         dict_copy['updated_at'] = self.updated_at.isoformat()
         return dict_copy
     def __init__(self, *args, **kwargs):
-        if kwargs:  # if there are keyword arguments
+        if kwargs: # if there are keyword arguments
+
             for key in kwargs:  # for each key in the dictionary
                 value = kwargs[key]  # get the value for this key
                 if key == "created_at" or key == "updated_at":
@@ -33,3 +35,5 @@ class BaseModel:
         else:  # if there are no keyword arguments
             self.id = str(uuid.uuid4())  # generate a unique ID
             self.created_at = self.updated_at = datetime.now()
+        if not kwargs:
+            storage.new(self)

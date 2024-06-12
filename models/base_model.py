@@ -2,7 +2,7 @@
 
 import uuid
 from datetime import datetime
-import storage
+from models import storage
 
 class BaseModel:
     def __init__(self):
@@ -15,7 +15,7 @@ class BaseModel:
 
     def save(self):
         self.updated_at = datetime.now()
-        self.storage.save()
+        storage.save()
 
     def to_dict(self):
         dict_copy = self.__dict__.copy()
@@ -37,4 +37,6 @@ class BaseModel:
             self.id = str(uuid.uuid4())  # generate a unique ID
             self.created_at = self.updated_at = datetime.now()
         if not kwargs:
-            self.storage.new(self)
+            storage.new(self)
+
+
